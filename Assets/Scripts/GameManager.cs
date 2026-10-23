@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int enemiesKilled = 0;
     public GameObject enemyPrefab;
 
+    public GameObject explosionEffectPrefab;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
     void LevelComplete()
     {
         Debug.Log("通关！解锁下一关！");
+        DG.Tweening.DOTween.KillAll();
         int maxUnlocked = PlayerPrefs.GetInt("MaxUnlockedLevel", 1);
         if (currentLevel >= maxUnlocked)
         {

@@ -8,18 +8,33 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 6;
     public int currentHealth;
 
+    private AudioSource source;
+    private Camera mainCamera;
+
     void Start()
     {
+        source = GetComponent<AudioSource>();
         currentHealth = maxHealth;
+        mainCamera = Camera.main; // 获取主相机
     }
 
     void Update()
     {
-        // 按住鼠标/屏幕移动
         if (Input.GetMouseButton(0))
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            // 1. 获取鼠标位置
+            Vector3 mousePos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             mousePos.z = 0;
+
+            // 2. 【核心隐形墙】：获取相机的屏幕左下角和右上角边界
+            Vector3 bottomLeft = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, 0));
+            Vector3 topRight = mainCamera.ViewportToWorldPoint(new Vector3(1, 1, 0));
+
+            // 3. 把鼠标位置死死限制在相机视野内
+            mousePos.x = Mathf.Clamp(mousePos.x, bottomLeft.x, topRight.x);
+            mousePos.y = Mathf.Clamp(mousePos.y, bottomLeft.y, topRight.y);
+
+            // 4. 移动过去
             transform.position = Vector3.MoveTowards(transform.position, mousePos, moveSpeed * Time.deltaTime);
         }
     }
@@ -27,8 +42,12 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         if (currentHealth <= 0) return;
+        
+        if (source != null) source.Play(); // 播放受击音效
+        
         currentHealth -= damage;
-        Debug.Log("玩家受伤，当前血量：" + currentHealth);
+        Debug.Log("玩家受伤，当前血量: " + currentHealth);
+        
         if (currentHealth <= 0)
         {
             Debug.Log("游戏结束！");
@@ -43,6 +62,6 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
-        Debug.Log("玩家回血，当前血量：" + currentHealth);
+        Debug.Log("玩家回血，当前血量: " + currentHealth);
     }
 }
