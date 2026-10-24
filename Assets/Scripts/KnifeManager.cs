@@ -14,6 +14,9 @@ public class KnifeManager : MonoBehaviour
 
     void Start()
     {
+        int currentLevel = PlayerPrefs.GetInt("CurrentLevel",1);
+        knifeCount=2+currentLevel;
+        rotateSpeed = 180f+(currentLevel * 20f);
         for (int i = 0; i < knifeCount; i++)
         {
             GameObject k = Instantiate(knifePrefab, transform);

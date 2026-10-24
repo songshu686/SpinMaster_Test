@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
         if (source != null) source.Play(); // 播放受击音效
         
         currentHealth -= damage;
+        if(currentHealth <0) currentHealth = 0;
         Debug.Log("玩家受伤，当前血量: " + currentHealth);
         
         if (currentHealth <= 0)

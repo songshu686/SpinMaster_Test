@@ -5000,6 +5000,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - {fileID: 8300000, guid: dab7b9fb1607be14da4ef57b4869c755, type: 3}
-  - {fileID: 8300000, guid: 3d074fa06e702a241bebf53831cce84b, type: 3}
   - {fileID: 8300000, guid: 927a65917fc104b4fbaa9ccc86c6953c, type: 3}
-  - {fileID: 8300000, guid: 8b4a9ea9db188d1448b61fea5f6518b7, type: 3}
