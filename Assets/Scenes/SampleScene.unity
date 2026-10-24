@@ -610,12 +610,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e00cda2aba501f4b908336ac61d924a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxSource: {fileID: 0}
   gameOverPanel: {fileID: 1542624300}
   currentLevel: 1
   enemiesToKill: 5
   enemiesKilled: 0
   enemyPrefab: {fileID: 4577863729103127390, guid: 0375b59b327dfe7428145fa5b6ab7361, type: 3}
   explosionEffectPrefab: {fileID: 5189340649073587658, guid: e8fa8537751fedb43ad467a8d98e7fac, type: 3}
+  bombPrefab: {fileID: 0}
+  chestPrefab: {fileID: 0}
 --- !u!1 &855476907
 GameObject:
   m_ObjectHideFlags: 0

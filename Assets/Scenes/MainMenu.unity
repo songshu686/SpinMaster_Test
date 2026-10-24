@@ -2785,7 +2785,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &425729704
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3839,8 +3839,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 634535015}
-        m_TargetAssemblyTypeName: LevelBtnLogic, Assembly-CSharp
-        m_MethodName: OnLevelClicked
+        m_TargetAssemblyTypeName: PlayLatestLevel, Assembly-CSharp
+        m_MethodName: OnPlayClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6213,10 +6213,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 634535009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4f4df203da486347ae04356233d8e5c, type: 3}
+  m_Script: {fileID: 11500000, guid: fb3176dd06395504b831ef87b467eca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 1
 --- !u!1 &735316593
 GameObject:
   m_ObjectHideFlags: 0
@@ -6364,7 +6363,6 @@ GameObject:
   - component: {fileID: 745013558}
   - component: {fileID: 745013557}
   - component: {fileID: 745013556}
-  - component: {fileID: 745013555}
   - component: {fileID: 745013554}
   m_Layer: 0
   m_Name: Btn_Close
@@ -6406,26 +6404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPanel: {fileID: 425729703}
---- !u!114 &745013555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 745013552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94ecf0c88173a64fa47992cebe1d4c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugMode: 0
-  Event:
-    m_PersistentCalls:
-      m_Calls: []
-  ListenForAllUIViews: 0
-  TriggerAction: 2
-  ViewCategory: Custom
-  ViewName: LevelSelect
 --- !u!114 &745013556
 MonoBehaviour:
   m_ObjectHideFlags: 0
