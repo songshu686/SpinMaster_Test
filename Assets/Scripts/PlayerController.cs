@@ -15,7 +15,12 @@ public class PlayerController : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         currentHealth = maxHealth;
-        mainCamera = Camera.main; // 获取主相机
+        mainCamera = Camera.main; 
+
+        
+        float targetSize = 6f; 
+        float screenRatio = (float)Screen.width / Screen.height; 
+        mainCamera.orthographicSize = targetSize / screenRatio;
     }
 
     void Update()

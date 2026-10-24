@@ -5,15 +5,21 @@ public class PlayLatestLevel : MonoBehaviour
 {
     public void OnPlayClicked()
     {
-        // 读取目前最高打到哪一关（默认1）
+        // 读取目前最高打到哪一关
         int maxUnlocked = PlayerPrefs.GetInt("MaxUnlockedLevel", 1);
         
-        // 把最高关卡存进去
-        PlayerPrefs.SetInt("CurrentLevel", maxUnlocked);
-        PlayerPrefs.Save();
-
-        // 根据最高关卡跳转
-        if (maxUnlocked == 1) SceneManager.LoadScene("SampleScene"); 
-        else SceneManager.LoadScene("Level2"); 
+        // 如果最高解锁到了 2 或以上，强制锁定进第 2 关
+        if (maxUnlocked >= 2)
+        {
+            PlayerPrefs.SetInt("CurrentLevel", 2);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("Level2");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("CurrentLevel", 1);
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 }

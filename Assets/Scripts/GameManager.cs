@@ -40,8 +40,9 @@ public class GameManager : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt("CurrentLevel", 1);
         
         // 设置击杀目标
-        if (currentLevel == 2) 
+        if (currentLevel == 2)
         {
+            currentLevel = 2;
             enemiesToKill = 10; 
         }
         else 
